@@ -1,0 +1,4 @@
+name: SpaceRift
+version: '${project.version}'
+main: spacerift.spacerift.SpaceRift
+api-version: 1.18
