@@ -30,7 +30,7 @@ public final class SpaceRift extends JavaPlugin implements Listener {
         ItemMeta meta = item.getItemMeta();
 
         meta.setDisplayName(ChatColor.GOLD + "Space Rift Scissors");
-        meta.setLore(Arrays.asList(ChatColor.GOLD + "A device used to tranvel through Dimensions"));
+        meta.setLore(Arrays.asList(ChatColor.GOLD + "\nA device used to travel through Dimensions!"));
         item.setItemMeta(meta);
 
         Player p = e.getPlayer();
