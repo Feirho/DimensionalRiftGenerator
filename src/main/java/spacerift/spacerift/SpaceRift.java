@@ -29,12 +29,13 @@ public final class SpaceRift extends JavaPlugin implements Listener {
         ItemStack item = new ItemStack(Material.SHEARS);
         ItemMeta meta = item.getItemMeta();
 
-        meta.setDisplayName(ChatColor.GOLD + "Space Rift Scissors");
-        meta.setLore(Arrays.asList(ChatColor.GOLD + "\nA device used to travel through Dimensions!"));
+        meta.setDisplayName(ChatColor.GOLD + "Dimensional Rift Scissors");
+        meta.setLore(Arrays.asList("", ChatColor.GOLD + "A device used to travel through Dimensions!"));
         item.setItemMeta(meta);
 
         Player p = e.getPlayer();
         p.getInventory().addItem(item);
     }
+
 }
 
