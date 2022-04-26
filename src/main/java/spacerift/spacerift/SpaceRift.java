@@ -19,6 +19,13 @@ public final class SpaceRift extends JavaPlugin implements Listener {
     public void onEnable() {
         Bukkit.getPluginManager().registerEvents(this,this);
         Bukkit.getPluginManager().registerEvents(new SpaceRiftFeatures(), this);
+
+        ItemStack locClock = new ItemStack(Material.CLOCK);
+        ItemMeta meta = locClock.getItemMeta();
+
+        meta.setDisplayName(ChatColor.GOLD + "Set Location");
+        meta.setLore(Arrays.asList("", ChatColor.GOLD + "write down the Coordinates to where you want to travel to!"));
+        locClock.setItemMeta(meta);
     }
     @Override
     public void onDisable() {
@@ -35,6 +42,8 @@ public final class SpaceRift extends JavaPlugin implements Listener {
 
         Player p = e.getPlayer();
         p.getInventory().addItem(item);
+
+
     }
 
 }
