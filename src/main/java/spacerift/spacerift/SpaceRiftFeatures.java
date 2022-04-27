@@ -28,8 +28,15 @@ public class SpaceRiftFeatures implements Listener {
                 ChatColor.GOLD + "Write Coordinates at the" + ChatColor.LIGHT_PURPLE + " sign", ChatColor.GOLD + "Next to the clock!"));
         locClock.setItemMeta(meta);
 
+        ItemStack locSign = new ItemStack(Material.OAK_SIGN);
+        ItemMeta locSignMeta = locSign.getItemMeta();
+
+        locSignMeta.setDisplayName(ChatColor.LIGHT_PURPLE + "sign");
+        locSignMeta.setLore(Arrays.asList("", ChatColor.DARK_AQUA + "Click!"));
+        locSign.setItemMeta(locSignMeta);
+
         Inventory inv = Bukkit.createInventory(null,45, ChatColor.GOLD + "Set Rift Location");
-        inv.setItem(22, new ItemStack(Material.OAK_SIGN));
+        inv.setItem(22, locSign);
         inv.setItem(20, locClock);
         Player p = e.getPlayer();
         if(p.getItemInHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Dimensional Rift Scissors")) {
