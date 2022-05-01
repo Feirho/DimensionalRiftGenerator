@@ -14,11 +14,14 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class SpaceRiftFeatures implements Listener {
 
+
     @EventHandler
     public void PlayerInteract(PlayerInteractEvent e) {
+
 
         ItemStack locClock = new ItemStack(Material.CLOCK);
         ItemMeta meta = locClock.getItemMeta();
@@ -35,14 +38,37 @@ public class SpaceRiftFeatures implements Listener {
         locSignMeta.setLore(Arrays.asList("", ChatColor.DARK_AQUA + "Click!"));
         locSign.setItemMeta(locSignMeta);
 
-        Inventory inv = Bukkit.createInventory(null,45, ChatColor.GOLD + "Set Rift Location");
+        Inventory inv = Bukkit.createInventory(null, 45, ChatColor.GOLD + "Set Rift Location");
         inv.setItem(22, locSign);
         inv.setItem(20, locClock);
         Player p = e.getPlayer();
-        if(p.getItemInHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Dimensional Rift Scissors")) {
-            if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
+        if (p.getItemInHand().getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Dimensional Rift Scissors")) {
+            if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
                 p.openInventory(inv);
+
+            }
+        }
+    }
+
+    @EventHandler
+    public void InvenClick(InventoryClickEvent event) {
+        Player player = (Player) event.getWhoClicked();
+
+        Inventory open = event.getClickedInventory();
+        ItemStack item = event.getCurrentItem();
+
+        if (open == null) {
+            return;
+        }
+        if (event.getView().getTitle().equals(ChatColor.GOLD + "Set Rift Location")) {
+
+            event.setCancelled(true);
+
+            if (item == null || !item.hasItemMeta()) {
+                return;
             }
         }
     }
 }
+
+//e.getView().getTitle()
